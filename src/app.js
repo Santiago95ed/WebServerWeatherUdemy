@@ -28,7 +28,7 @@ app.get('', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-    res.render('About', {
+    res.render('about', {
         title: 'About app',
         name: 'Santiago'
     })
@@ -55,23 +55,17 @@ app.get('/products', (req, res) => {
     })
 
 })
+
 app.get('/Weather', (req, res) => {
     if (!req.query.address) {
         return res.send({
             error: "You did`t provide an address"
         })
-    }
-
+    } 
 
     geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
 
-        if (error) {
-
-            // return res.render('404', {
-            //     title: '404 Weather',
-            //     name: 'Santiago',
-            //     message: error
-            // })
+        if (error) { 
             return res.send({
                 title: '404 Weather',
                 name: 'Santiago',
@@ -88,12 +82,7 @@ app.get('/Weather', (req, res) => {
                         address: req.query.address
                     })
                 }
-                else {
-                    // return res.render('404', {
-                    //     title: '404 Weather',
-                    //     name: 'Santiago',
-                    //     message: error
-                    // }) 
+                else { 
                     return res.send({
                         title: '404 Weather',
                         name: 'Santiago',
@@ -104,11 +93,7 @@ app.get('/Weather', (req, res) => {
             })
         }
     })
-
-
-
 })
-
 
 app.get('/help/*', (req, res) => {
     res.render('404', {
@@ -118,7 +103,6 @@ app.get('/help/*', (req, res) => {
     })
 })
 
-
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
@@ -127,32 +111,9 @@ app.get('*', (req, res) => {
     })
 })
 
-//app.com
-//app.com/help
-//app.com/about
-
-
 app.get('', (req, res) => {
     res.send('<h1>Weather</h1>')
 })
-
-// app.get('/help', (req, res) => {
-//     res.send([{
-//         name: 'Santiago',
-//         age: 26
-//     },
-//     {
-//         name: 'Ikaris',
-//         age: 70038
-//     }
-//     ])
-// })
-
-// app.get('/about', (req, res) => {
-//     res.send('<h2>about page with H2</h2>')
-// })
-
-
 
 app.listen(port, () => {
     console.log('Server is up on port ' + port + '.')
