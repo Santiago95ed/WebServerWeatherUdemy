@@ -13,9 +13,9 @@ console.log(__filename)
 
 const port = process.env.PORT  || 3000
 
-console.log(path.join(__dirname, '../public'))
+console.log(path.join(__dirname, '../build'))
 
-const publicDirectoryPath = path.join(__dirname, '../public')
+const publicDirectoryPath = path.join(__dirname, '../build')
 const viewaPath = path.join(__dirname, '../templates/views')
 
 const partialPath = path.join(__dirname, '../templates/partials')
