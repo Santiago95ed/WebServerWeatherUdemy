@@ -4,15 +4,17 @@ const hbs = require('hbs')
 const request = require("postman-request")
 const geocode = require('./utils/geocode.js')
 const forecast = require('./utils/forecast.js')
- 
-const app = express() 
+
 const port = process.env.PORT  || 3000
- 
+const app = express()  
+app.set('view engine', 'hbs')
+
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewaPath = path.join(__dirname, '../templates/views') 
 const partialPath = path.join(__dirname, '../templates/partials')
+ 
+console.log(publicDirectoryPath)
 
-app.set('view engine', 'hbs')
 app.set('views', viewaPath)
 hbs.registerPartials(partialPath)
  
