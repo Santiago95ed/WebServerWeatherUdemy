@@ -9,7 +9,7 @@ const port = process.env.PORT  || 3000
 const app = express()  
 app.set('view engine', 'hbs')
 
-const publicDirectoryPath = path.join(__dirname, '../public')
+const publicDirectoryPath = path.join(__dirname, '../Public')
 const viewaPath = path.join(__dirname, '../templates/views') 
 const partialPath = path.join(__dirname, '../templates/partials')
  
